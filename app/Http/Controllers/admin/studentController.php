@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\students;
-use App\Models\Courses;
+use App\Models\courses;
 use PDF;
 
 class studentController extends Controller
@@ -61,7 +61,7 @@ class studentController extends Controller
             $result['course_fee'] ='';
         }
 
-        $result['course'] = Courses::get();
+        $result['course'] = courses::get();
         return view('admin.register',$result);
     }
     function registration_process(Request $req){
@@ -102,7 +102,7 @@ class studentController extends Controller
             $student->image = $image_url;
         }
         $course_id = $req->post('course');
-        $course = Courses::where('id',$course_id)->get();
+        $course = courses::where('id',$course_id)->get();
     
 
         $student->name = $req->post('name');
