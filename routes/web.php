@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\adminLoginController;
 use App\Http\Controllers\admin\dashboard;
 use App\Http\Controllers\admin\studentController;
-use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\courseController;
 use App\Http\Controllers\admin\FeesController;
 
 //front Controller
@@ -60,13 +60,13 @@ Route::middleware('adminAuth')->group(function(){
     Route::get('/admin/student/view_student/{id}',[studentController::class,'viewStudent']);
     Route::get('/admin/student/delete_student/{id}',[studentController::class,'delete_student']);
     Route::get('/admin/student/edit/{id}',[studentController::class,'register']);
-    Route::get('admin/add_course',[CourseController::class,'add_course']);
-    Route::get('admin/courses',[CourseController::class,'courses']);
-    Route::get('/admin/courses/status/{id}/{status}',[CourseController::class,'status']);
-    Route::get('admin/courses/delete_course/{id}',[CourseController::class,'delete']);
-    Route::get('/admin/courses/edit/{id}',[CourseController::class,'add_course']);
-    Route::get('/admin/courses/view_course/{id}',[CourseController::class,'view_course']);
-    Route::post('admin/add_course_process',[CourseController::class,'add_course_process'])->name('add_course');
+    Route::get('admin/add_course',[courseController::class,'add_course']);
+    Route::get('admin/courses',[courseController::class,'courses']);
+    Route::get('/admin/courses/status/{id}/{status}',[courseController::class,'status']);
+    Route::get('admin/courses/delete_course/{id}',[courseController::class,'delete']);
+    Route::get('/admin/courses/edit/{id}',[courseController::class,'add_course']);
+    Route::get('/admin/courses/view_course/{id}',[courseController::class,'view_course']);
+    Route::post('admin/add_course_process',[courseController::class,'add_course_process'])->name('add_course');
     Route::get('/admin/certificate',[studentController::class,'generate_certificate']);
     Route::get('/admin/view_certificate',[studentController::class,'view_certificate']);
     Route::get('/admin/generate_certificate/{id}',[studentController::class,'generate_certificate_process']);
